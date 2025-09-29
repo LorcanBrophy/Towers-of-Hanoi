@@ -47,8 +47,6 @@ public class Controller {
 
         disc3.setLayoutX(towerCenterX - disc3.getWidth() / 2);
         disc3.setLayoutY(420);
-
-        updateLabels();
     }
 
     @FXML
@@ -70,8 +68,6 @@ public class Controller {
             }
             tower.remove(selectedDisc);
         }
-
-        updateLabels();
     }
 
     @FXML
@@ -106,13 +102,6 @@ public class Controller {
         selectedDisc.setLayoutX(towerCenterX - (selectedDisc.getWidth() / 2));
         selectedDisc.setLayoutY(500 - (towers.get(selectedTower).size() - 1) * 40);
 
-        updateLabels();
-    }
-
-    private void updateLabels() {
-        third1.setText(String.valueOf(towers.get(0).size()));
-        third2.setText(String.valueOf(towers.get(1).size()));
-        third3.setText(String.valueOf(towers.get(2).size()));
     }
 
     private boolean isTopDisc(Rectangle disc) {

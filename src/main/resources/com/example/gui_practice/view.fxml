@@ -4,15 +4,35 @@
 <?import javafx.scene.layout.Pane?>
 
 <?import javafx.scene.control.Label?>
-<Pane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gui_practice.Controller">
-    <Rectangle fx:id="disc1" fill="blue" stroke="BLACK" height="40" width="200"
-               onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
-    <Rectangle fx:id="disc2" fill="green" stroke="BLACK" height="40" width="140"
-               onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
-    <Rectangle fx:id="disc3" fill="red" stroke="BLACK" height="40" width="80"
-               onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
+<?import javafx.scene.shape.Arc?>
 
-    <Label fx:id="third1" layoutX="150" layoutY="550"/>
-    <Label fx:id="third2" layoutX="450" layoutY="550"/>
-    <Label fx:id="third3" layoutX="750" layoutY="550"/>
+<?import javafx.scene.layout.VBox?>
+<Pane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gui_practice.Controller">
+    <VBox>
+        <Label fx:id="title" text="Tower of Hanoi"/>
+        <Label fx:id="summary" text="Move all 3 discs to the tower furthest on the right"/>
+    </VBox>
+
+    <!-- Tower bases -->
+    <Rectangle styleClass="base" x="25" y="540" width="250" height="20"/>
+    <Rectangle styleClass="base" x="325" y="540" width="250" height="20"/>
+    <Rectangle styleClass="base" x="625" y="540" width="250" height="20"/>
+
+    <!-- Tower rods -->
+    <Rectangle styleClass="rod" x="145" y="340" width="10" height="200"/>
+    <Arc styleClass="rod" centerX="150" centerY="340" radiusX="5" radiusY="5" length="180"/>
+
+    <Rectangle styleClass="rod" x="445" y="340" width="10" height="200"/>
+    <Arc styleClass="rod" centerX="450" centerY="340" radiusX="5" radiusY="5" length="180"/>
+
+    <Rectangle styleClass="rod" x="745" y="340" width="10" height="200"/>
+    <Arc styleClass="rod" centerX="750" centerY="340" radiusX="5" radiusY="5" length="180"/>
+
+    <!-- Discs -->
+    <Rectangle fx:id="disc1" height="40" width="200"
+               onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
+    <Rectangle fx:id="disc2" height="40" width="140"
+               onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
+    <Rectangle fx:id="disc3" height="40" width="80"
+               onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
 </Pane>

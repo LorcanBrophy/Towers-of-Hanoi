@@ -1,0 +1,48 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom, #87f6ff, #f4f4f4);
+}
+
+#disc1 {
+    -fx-fill: linear-gradient(to right, #ff6b6b, #ef5e44);
+    -fx-stroke: black;
+    -fx-arc-width: 40;
+    -fx-arc-height: 40;
+}
+
+#disc2 {
+    -fx-fill: linear-gradient(to right, #4facfe, #0061ff);
+    -fx-stroke: black;
+    -fx-arc-width: 40;
+    -fx-arc-height: 40;
+}
+
+#disc3 {
+    -fx-fill: linear-gradient(to right, #43e97b, #38f9d7);
+    -fx-stroke: black;
+    -fx-arc-width: 40;
+    -fx-arc-height: 40;
+}
+
+.base {
+    -fx-fill: #434343;
+    -fx-stroke: black;
+    -fx-arc-width: 10;
+    -fx-arc-height: 10;
+}
+
+.rod {
+    -fx-fill: #434343;
+}
+
+#title {
+    -fx-text-fill: linear-gradient(#3892dd, #3fbbc3);
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 0 0 10;
+}
+
+#summary {
+    -fx-text-fill: #404040;
+    -fx-font-size: 16px;
+    -fx-padding: 0 0 0 15;
+}
