@@ -1,40 +1,41 @@
 package com.example.gui_practice;
 
 import javafx.fxml.FXML;
-
+import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
-import javafx.scene.input.MouseEvent;
-
-
 public class Controller {
-    @FXML private Rectangle disc1;
 
+    private Rectangle selectedDisc;
     private double offsetX;
     private double offsetY;
 
     @FXML
-    public void mousePressed(MouseEvent mouseEvent) {
-        offsetX = mouseEvent.getSceneX() - disc1.getLayoutX();
-        offsetY = mouseEvent.getSceneY() - disc1.getLayoutY();
+    public void mousePressed(MouseEvent event) {
+        selectedDisc = (Rectangle) event.getSource();
+        offsetX = event.getSceneX() - selectedDisc.getLayoutX();
+        offsetY = event.getSceneY() - selectedDisc.getLayoutY();
     }
 
     @FXML
-    public void mouseDragged(MouseEvent mouseEvent) {
-        disc1.setLayoutX(mouseEvent.getSceneX() - offsetX);
-        disc1.setLayoutY(mouseEvent.getSceneY() - offsetY);
+    public void mouseDragged(MouseEvent event) {
+        selectedDisc.setLayoutX(event.getSceneX() - offsetX);
+        selectedDisc.setLayoutY(event.getSceneY() - offsetY);
     }
-    // I can make it so you check the nearest disc and move it into the right position, rather than making specific conditions for each disc
-    public void mouseReleased() {
-        if (disc1.getLayoutX() < 300) {
-            disc1.setLayoutX(100);
-            disc1.setLayoutY(500);
-        } else if (disc1.getLayoutX() < 600) {
-            disc1.setLayoutX(400);
-            disc1.setLayoutY(500);
+
+    @FXML
+    public void mouseReleased(MouseEvent event) {
+        double x = selectedDisc.getLayoutX();
+
+        if (x < 300) {
+            selectedDisc.setLayoutX(50);
+            selectedDisc.setLayoutY(500);
+        } else if (x < 600) {
+            selectedDisc.setLayoutX(350);
+            selectedDisc.setLayoutY(500);
         } else {
-            disc1.setLayoutX(700);
-            disc1.setLayoutY(500);
+            selectedDisc.setLayoutX(650);
+            selectedDisc.setLayoutY(500);
         }
     }
 }
