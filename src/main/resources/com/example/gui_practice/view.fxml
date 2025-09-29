@@ -3,7 +3,14 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.layout.Pane?>
 
+<?import javafx.scene.control.Label?>
 <Pane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gui_practice.Controller">
-    <Rectangle fx:id="disc1" fill="darkslateblue" stroke="BLACK" height="40" width="200" onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
-    <Rectangle fx:id="disc2" fill="midnightblue" stroke="BLACK" height="40" width="140" onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
+    <Rectangle fx:id="disc1" fill="darkslateblue" stroke="BLACK" height="40" width="200"
+               onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
+    <Rectangle fx:id="disc2" fill="midnightblue" stroke="BLACK" height="40" width="140"
+               onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
+
+    <Label fx:id="third1" layoutX="150" layoutY="550"/>
+    <Label fx:id="third2" layoutX="450" layoutY="550"/>
+    <Label fx:id="third3" layoutX="750" layoutY="550"/>
 </Pane>
