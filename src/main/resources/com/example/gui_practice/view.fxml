@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<?import javafx.scene.layout.VBox?>
+<HBox spacing="20" alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gui_practice.Controller">
+
+    <Pane fx:id="tower1" HBox.hgrow="ALWAYS" style="-fx-border-color: black;">
+        <Rectangle fx:id="base1" fill="SANDYBROWN" stroke="BLACK" height="20"/>
+        <Rectangle fx:id="disc1" fill="LIGHTBLUE" stroke="BLACK" height="30"/>
+        <Rectangle fx:id="disc2" fill="LIGHTGREEN" stroke="BLACK" height="30"/>
+        <Rectangle fx:id="disc3" fill="LIGHTCORAL" stroke="BLACK" height="30"/>
+    </Pane>
+
+    <Pane fx:id="tower2" HBox.hgrow="ALWAYS" style="-fx-border-color: black;">
+        <Rectangle fx:id="base2" fill="SANDYBROWN" stroke="BLACK" height="20"/>
+    </Pane>
+
+    <Pane fx:id="tower3" HBox.hgrow="ALWAYS" style="-fx-border-color: black;">
+        <Rectangle fx:id="base3" fill="SANDYBROWN" stroke="BLACK" height="20"/>
+    </Pane>
+
+</HBox>
