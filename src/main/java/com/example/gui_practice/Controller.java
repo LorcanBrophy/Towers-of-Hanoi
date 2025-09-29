@@ -5,6 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class Controller {
@@ -15,20 +17,25 @@ public class Controller {
 
     @FXML private Rectangle disc1;
     @FXML private Rectangle disc2;
+    @FXML private Rectangle disc3;
 
     private Rectangle selectedDisc;
     private double offsetX;
     private double offsetY;
 
-    private final Stack<Rectangle>[] towers = new Stack[3];
+    private int originalTower;
+
+    private final List<Stack<Rectangle>> towers = new ArrayList<>();
 
     @FXML
     public void initialize() {
         for (int i = 0; i < 3; i++) {
-            towers[i] = new Stack<>();
+            towers.add(new Stack<>());
         }
-        towers[0].push(disc1);
-        towers[0].push(disc2);
+
+        towers.get(0).push(disc1);
+        towers.get(0).push(disc2);
+        towers.get(0).push(disc3);
 
         double towerCenterX = 150;
 
@@ -37,6 +44,9 @@ public class Controller {
 
         disc2.setLayoutX(towerCenterX - disc2.getWidth() / 2);
         disc2.setLayoutY(460);
+
+        disc3.setLayoutX(towerCenterX - disc3.getWidth() / 2);
+        disc3.setLayoutY(420);
 
         updateLabels();
     }
@@ -53,9 +63,14 @@ public class Controller {
         offsetX = event.getSceneX() - selectedDisc.getLayoutX();
         offsetY = event.getSceneY() - selectedDisc.getLayoutY();
 
-        for (Stack<Rectangle> disc : towers) {
-            disc.remove(selectedDisc);
+        for (int i = 0; i < towers.size(); i++) {
+            Stack<Rectangle> tower = towers.get(i);
+            if (!tower.isEmpty() && tower.peek() == selectedDisc) {
+                originalTower = i;
+            }
+            tower.remove(selectedDisc);
         }
+
         updateLabels();
     }
 
@@ -78,26 +93,26 @@ public class Controller {
         else if (x < 600) selectedTower = 1;
         else selectedTower = 2;
 
-        if (towers[selectedTower].isEmpty() || selectedDisc.getWidth() < towers[selectedTower].peek().getWidth()) {
-            towers[selectedTower].push(selectedDisc);
+        double towerCenterX = 150 + (selectedTower * 300);
 
-            double towerCenterX = 150 + (selectedTower * 300);
-            selectedDisc.setLayoutX(towerCenterX - (selectedDisc.getWidth() / 2));
-
-            selectedDisc.setLayoutY(500 - (towers[selectedTower].size() - 1) * 40);
+        if (towers.get(selectedTower).isEmpty() || selectedDisc.getWidth() < towers.get(selectedTower).peek().getWidth()) {
+            towers.get(selectedTower).push(selectedDisc);
         } else {
-            towers[0].push(selectedDisc);
-            selectedDisc.setLayoutX(50);
-            selectedDisc.setLayoutY(500 - (towers[0].size() - 1) * 40);
+            selectedTower = originalTower;
+            towerCenterX = 150 + (originalTower * 300);
+            towers.get(originalTower).push(selectedDisc);
         }
+
+        selectedDisc.setLayoutX(towerCenterX - (selectedDisc.getWidth() / 2));
+        selectedDisc.setLayoutY(500 - (towers.get(selectedTower).size() - 1) * 40);
 
         updateLabels();
     }
 
     private void updateLabels() {
-        third1.setText(String.valueOf(towers[0].size()));
-        third2.setText(String.valueOf(towers[1].size()));
-        third3.setText(String.valueOf(towers[2].size()));
+        third1.setText(String.valueOf(towers.get(0).size()));
+        third2.setText(String.valueOf(towers.get(1).size()));
+        third3.setText(String.valueOf(towers.get(2).size()));
     }
 
     private boolean isTopDisc(Rectangle disc) {

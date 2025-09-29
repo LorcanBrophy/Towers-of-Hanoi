@@ -5,9 +5,11 @@
 
 <?import javafx.scene.control.Label?>
 <Pane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gui_practice.Controller">
-    <Rectangle fx:id="disc1" fill="darkslateblue" stroke="BLACK" height="40" width="200"
+    <Rectangle fx:id="disc1" fill="blue" stroke="BLACK" height="40" width="200"
                onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
-    <Rectangle fx:id="disc2" fill="midnightblue" stroke="BLACK" height="40" width="140"
+    <Rectangle fx:id="disc2" fill="green" stroke="BLACK" height="40" width="140"
+               onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
+    <Rectangle fx:id="disc3" fill="red" stroke="BLACK" height="40" width="80"
                onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
 
     <Label fx:id="third1" layoutX="150" layoutY="550"/>
