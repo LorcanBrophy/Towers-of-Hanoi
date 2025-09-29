@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Rectangle?>
-
 <?import javafx.scene.layout.Pane?>
+
 <Pane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gui_practice.Controller">
-    <Rectangle fx:id="rect1" fill="darkslateblue" stroke="BLACK" height="40" width="80"
-               onMousePressed="#mousePressed" onMouseDragged="#mouseDragged"/>
+    <Rectangle fx:id="disc1" fill="darkslateblue" stroke="BLACK" height="40" width="80" onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
 </Pane>
