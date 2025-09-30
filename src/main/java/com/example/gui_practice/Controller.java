@@ -12,6 +12,8 @@ import java.util.Stack;
 
 public class Controller {
 
+    public Label title;
+    public Label summary;
     @FXML private Label winText;
 
 
@@ -34,9 +36,9 @@ public class Controller {
             towers.add(new Stack<>());
         }
 
-        towers.get(0).push(disc1);
-        towers.get(0).push(disc2);
-        towers.get(0).push(disc3);
+        towers.getFirst().push(disc1);
+        towers.getFirst().push(disc2);
+        towers.getFirst().push(disc3);
 
         double towerCenterX = 150;
 
@@ -49,32 +51,12 @@ public class Controller {
         disc3.setLayoutX(towerCenterX - disc3.getWidth() / 2);
         disc3.setLayoutY(420);
 
-        disc1.setOnMouseEntered(event -> {
-            if (isTopDisc(disc1)) {
-                disc1.setCursor(Cursor.OPEN_HAND);
-            } else {
-                disc1.setCursor(Cursor.DEFAULT);
-            }
-        });
-        disc1.setOnMouseExited(event -> disc1.setCursor(Cursor.DEFAULT));
+        List<Rectangle> discs = List.of(disc1, disc2, disc3);
 
-        disc2.setOnMouseEntered(event -> {
-            if (isTopDisc(disc2)) {
-                disc2.setCursor(Cursor.OPEN_HAND);
-            } else {
-                disc2.setCursor(Cursor.DEFAULT);
-            }
-        });
-        disc2.setOnMouseExited(event -> disc2.setCursor(Cursor.DEFAULT));
-
-        disc3.setOnMouseEntered(event -> {
-            if (isTopDisc(disc3)) {
-                disc3.setCursor(Cursor.OPEN_HAND);
-            } else {
-                disc3.setCursor(Cursor.DEFAULT);
-            }
-        });
-        disc3.setOnMouseExited(event -> disc3.setCursor(Cursor.DEFAULT));
+        for (Rectangle disc : discs) {
+            disc.setOnMouseEntered(_ -> disc.setCursor(isTopDisc(disc) ? Cursor.OPEN_HAND : Cursor.DEFAULT));
+            disc.setOnMouseExited(_ -> disc.setCursor(Cursor.DEFAULT));
+        }
     }
 
     @FXML
