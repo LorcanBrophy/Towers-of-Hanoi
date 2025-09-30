@@ -1,6 +1,7 @@
 package com.example.gui_practice;
 
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
@@ -47,6 +48,33 @@ public class Controller {
 
         disc3.setLayoutX(towerCenterX - disc3.getWidth() / 2);
         disc3.setLayoutY(420);
+
+        disc1.setOnMouseEntered(event -> {
+            if (isTopDisc(disc1)) {
+                disc1.setCursor(Cursor.OPEN_HAND);
+            } else {
+                disc1.setCursor(Cursor.DEFAULT);
+            }
+        });
+        disc1.setOnMouseExited(event -> disc1.setCursor(Cursor.DEFAULT));
+
+        disc2.setOnMouseEntered(event -> {
+            if (isTopDisc(disc2)) {
+                disc2.setCursor(Cursor.OPEN_HAND);
+            } else {
+                disc2.setCursor(Cursor.DEFAULT);
+            }
+        });
+        disc2.setOnMouseExited(event -> disc2.setCursor(Cursor.DEFAULT));
+
+        disc3.setOnMouseEntered(event -> {
+            if (isTopDisc(disc3)) {
+                disc3.setCursor(Cursor.OPEN_HAND);
+            } else {
+                disc3.setCursor(Cursor.DEFAULT);
+            }
+        });
+        disc3.setOnMouseExited(event -> disc3.setCursor(Cursor.DEFAULT));
     }
 
     @FXML
@@ -74,6 +102,8 @@ public class Controller {
     public void mouseDragged(MouseEvent event) {
         if (selectedDisc == null) return;
 
+        selectedDisc.setCursor(Cursor.CLOSED_HAND);
+
         selectedDisc.setLayoutX(event.getSceneX() - offsetX);
         selectedDisc.setLayoutY(event.getSceneY() - offsetY);
     }
@@ -81,6 +111,8 @@ public class Controller {
     @FXML
     public void mouseReleased() {
         if (selectedDisc == null) return;
+
+        selectedDisc.setCursor(Cursor.CLOSED_HAND);
 
         double x = selectedDisc.getLayoutX();
         int selectedTower;
