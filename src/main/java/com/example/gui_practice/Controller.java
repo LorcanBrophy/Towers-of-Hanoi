@@ -13,7 +13,7 @@ import java.util.Stack;
 public class Controller {
 
     public Label title;
-    public Label summary;
+    public Label moveCount;
     @FXML private Label winText;
 
 
@@ -27,6 +27,9 @@ public class Controller {
     private double offsetY;
 
     private int originalTower;
+
+    private int moveCounter;
+    private boolean gameOver = false;
 
     private final List<Stack<Rectangle>> towers = new ArrayList<>();
 
@@ -57,10 +60,14 @@ public class Controller {
             disc.setOnMouseEntered(_ -> disc.setCursor(isTopDisc(disc) ? Cursor.OPEN_HAND : Cursor.DEFAULT));
             disc.setOnMouseExited(_ -> disc.setCursor(Cursor.DEFAULT));
         }
+
+        moveCount.setText("Moves: " + moveCounter);
     }
 
     @FXML
     public void mousePressed(MouseEvent event) {
+        if (gameOver) return;
+
         selectedDisc = (Rectangle) event.getSource();
 
         if (!isTopDisc(selectedDisc)) {
@@ -83,6 +90,7 @@ public class Controller {
     @FXML
     public void mouseDragged(MouseEvent event) {
         if (selectedDisc == null) return;
+        if (gameOver) return;
 
         selectedDisc.setCursor(Cursor.CLOSED_HAND);
 
@@ -93,8 +101,7 @@ public class Controller {
     @FXML
     public void mouseReleased() {
         if (selectedDisc == null) return;
-
-        selectedDisc.setCursor(Cursor.CLOSED_HAND);
+        if (gameOver) return;
 
         double x = selectedDisc.getLayoutX();
         int selectedTower;
@@ -107,6 +114,12 @@ public class Controller {
 
         if (towers.get(selectedTower).isEmpty() || selectedDisc.getWidth() < towers.get(selectedTower).peek().getWidth()) {
             towers.get(selectedTower).push(selectedDisc);
+
+            if (selectedTower != originalTower) {
+                moveCounter++;
+                moveCount.setText("Moves: " + moveCounter);
+            }
+
         } else {
             selectedTower = originalTower;
             towerCenterX = 150 + (originalTower * 300);
@@ -116,10 +129,7 @@ public class Controller {
         selectedDisc.setLayoutX(towerCenterX - (selectedDisc.getWidth() / 2));
         selectedDisc.setLayoutY(500 - (towers.get(selectedTower).size() - 1) * 40);
 
-
-        if (towers.get(2).size() == 3) {
-            winText.setText("YOU WIN!");
-        }
+        if (towers.get(2).size() == 3) gameFinished();
     }
 
     private boolean isTopDisc(Rectangle disc) {
@@ -129,5 +139,36 @@ public class Controller {
             }
         }
         return false;
+    }
+
+    private void gameFinished() {
+        gameOver = true;
+
+        winText.setText("YOU WIN!");
+    }
+
+    public void resetGame() {
+        for (Stack<Rectangle> tower : towers) {
+            tower.clear();
+        }
+
+        towers.getFirst().push(disc1);
+        towers.getFirst().push(disc2);
+        towers.getFirst().push(disc3);
+
+        disc1.setLayoutX(150 - disc1.getWidth() / 2);
+        disc1.setLayoutY(500);
+
+        disc2.setLayoutX(150 - disc2.getWidth() / 2);
+        disc2.setLayoutY(460);
+
+        disc3.setLayoutX(150 - disc3.getWidth() / 2);
+        disc3.setLayoutY(420);
+
+        gameOver = false;
+        moveCounter = 0;
+        winText.setText("");
+
+        moveCount.setText("Moves: " + moveCounter); // update move counter cause it stayed at the previous num
     }
 }

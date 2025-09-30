@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.layout.Pane?>
-
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.shape.Arc?>
-
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
-<Pane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gui_practice.Controller">
-    <VBox>
-        <Label fx:id="title" text="Tower of Hanoi"/>
-        <Label fx:id="summary" text="Move all 3 discs to the tower furthest on the right"/>
-        <Label fx:id="winText" />
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gui_practice.Controller">
+
+    <!-- Left menu -->
+    <VBox layoutX="20" layoutY="10" spacing="10">
+        <VBox styleClass="menu">
+            <Label fx:id="title" text="Tower of Hanoi"/>
+        </VBox>
+
+        <TitledPane text="Rules" expanded="false">
+            <VBox>
+                <Label text="- Only the top disc can be moved"/>
+                <Label text="- A disc can only be placed on a larger disc or an empty rod"/>
+                <Label text="- Try to move all discs to the last tower in as few moves as possible"/>
+            </VBox>
+        </TitledPane>
+
+    </VBox>
+
+    <VBox spacing="5" alignment="TOP_RIGHT" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="20">
+        <Label fx:id="moveCount"/>
+        <Button styleClass="resetButton" text="Reset" onAction="#resetGame"/>
+        <Label fx:id="winText"/>
     </VBox>
 
     <!-- Tower bases -->
@@ -36,4 +51,5 @@
                onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
     <Rectangle fx:id="disc3" height="40" width="80"
                onMousePressed="#mousePressed" onMouseDragged="#mouseDragged" onMouseReleased="#mouseReleased"/>
-</Pane>
+
+</AnchorPane>

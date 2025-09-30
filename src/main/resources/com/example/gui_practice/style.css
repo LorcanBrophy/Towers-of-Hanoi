@@ -1,5 +1,5 @@
 .root {
-    -fx-background-color: linear-gradient(to bottom, #87f6ff, #f4f4f4);
+    -fx-background-color: linear-gradient(to bottom, #ece8e8, #f4f4f4);
 }
 
 #disc1 {
@@ -38,18 +38,51 @@
     -fx-text-fill: linear-gradient(#3892dd, #3fbbc3);
     -fx-font-size: 36px;
     -fx-font-weight: bold;
-    -fx-padding: 5 0 0 10;
 }
 
 #summary {
     -fx-text-fill: #404040;
-    -fx-font-size: 16px;
-    -fx-padding: 0 0 0 15;
+    -fx-font-size: 14px;
 }
 
 #winText {
     -fx-text-fill: linear-gradient(#29bd2c, #14871c);
     -fx-font-size: 36px;
     -fx-font-weight: bold;
-    -fx-padding: 5 0 0 10;
+}
+
+#moveCount {
+    -fx-text-fill: #404040;
+    -fx-font-size: 16px;
+    -fx-padding: 10 10 10 0;
+}
+
+.resetButton {
+    -fx-background-color: #7a7a7a;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-font-weight: bold;
+    -fx-padding: 10 10 10 10;
+}
+
+.resetButton:hover {
+    -fx-background-color: #616161;
+}
+
+.debug-border {
+    -fx-border-color: blue;
+    -fx-border-width: 2;
+    -fx-border-style: dashed;
+}
+
+.menu {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f4f4f4);
+    -fx-background-radius: 12;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 2;
+    -fx-border-radius: 12;
+    -fx-padding: 15 20 15 20;
+    -fx-spacing: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 8, 0, 2, 2);
+    -fx-alignment: top-center;
 }
