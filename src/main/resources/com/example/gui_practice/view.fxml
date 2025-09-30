@@ -11,6 +11,7 @@
     <VBox>
         <Label fx:id="title" text="Tower of Hanoi"/>
         <Label fx:id="summary" text="Move all 3 discs to the tower furthest on the right"/>
+        <Label fx:id="winText" />
     </VBox>
 
     <!-- Tower bases -->

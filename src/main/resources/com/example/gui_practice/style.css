@@ -46,3 +46,10 @@
     -fx-font-size: 16px;
     -fx-padding: 0 0 0 15;
 }
+
+#winText {
+    -fx-text-fill: linear-gradient(#29bd2c, #14871c);
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 0 0 10;
+}

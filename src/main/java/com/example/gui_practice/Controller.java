@@ -11,15 +11,15 @@ import java.util.Stack;
 
 public class Controller {
 
-    @FXML private Label third1;
-    @FXML private Label third2;
-    @FXML private Label third3;
+    @FXML private Label winText;
+
 
     @FXML private Rectangle disc1;
     @FXML private Rectangle disc2;
     @FXML private Rectangle disc3;
 
-    private Rectangle selectedDisc;
+    @FXML private Rectangle selectedDisc;
+
     private double offsetX;
     private double offsetY;
 
@@ -102,6 +102,10 @@ public class Controller {
         selectedDisc.setLayoutX(towerCenterX - (selectedDisc.getWidth() / 2));
         selectedDisc.setLayoutY(500 - (towers.get(selectedTower).size() - 1) * 40);
 
+
+        if (towers.get(2).size() == 3) {
+            winText.setText("YOU WIN!");
+        }
     }
 
     private boolean isTopDisc(Rectangle disc) {
