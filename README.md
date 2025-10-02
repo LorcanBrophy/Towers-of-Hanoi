@@ -1,7 +1,5 @@
 # Tower of Hanoi
 
-Tower of Hanoi made using JavaFx. Game contains a move counter, rule set, and reset button.
-
 # Gameplay
 <img width="893" height="590" alt="image" src="https://github.com/user-attachments/assets/f02cfd0f-1363-4731-9095-6eaea34efcfb" />
 <img width="896" height="588" alt="image" src="https://github.com/user-attachments/assets/01098482-e5c1-4fa5-b201-82e9ea8e9848" />
