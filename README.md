@@ -29,7 +29,7 @@ Towers of Hanoi made using JavaFx. Game contains a move counter, rule set, and r
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── view.fxml
 
 # Controls
-- Click and drag a disc to 
+- Click and drag a disc to place it.
 
 - Use the dropdown to view the rules of the game.
 
