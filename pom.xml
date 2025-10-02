@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>GUI_Practice</artifactId>
+    <artifactId>TowerOfHanoi</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>GUI_Practice</name>
 
@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.gui_practice/com.example.gui_practice.Application</mainClass>
+                            <mainClass>com.example.gui_practice/com.example.tower_of_hanoi.Application</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

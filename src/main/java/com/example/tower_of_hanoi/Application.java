@@ -1,4 +1,4 @@
-package com.example.gui_practice;
+package com.example.tower_of_hanoi;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,6 +15,7 @@ public class Application extends javafx.application.Application {
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         stage.setScene(scene);
         stage.setTitle("Tower of Hanoi");
+        stage.setResizable(false);
         stage.show();
     }
 

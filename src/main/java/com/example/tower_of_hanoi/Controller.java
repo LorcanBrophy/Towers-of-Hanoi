@@ -1,4 +1,4 @@
-package com.example.gui_practice;
+package com.example.tower_of_hanoi;
 
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;

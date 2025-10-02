@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.gui_practice.Controller">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tower_of_hanoi.Controller">
 
     <!-- Left menu -->
     <VBox layoutX="20" layoutY="10" spacing="10">
